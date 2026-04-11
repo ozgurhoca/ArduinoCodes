@@ -1,13 +1,16 @@
-int buz=6;
+int led1=8;
+int led2=9;
 
 void setup() {
-  pinMode(buz,OUTPUT);
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
 }
+
 void loop() {
-  tone(buz,500); //20-20000
-  delay(500);
-  tone(buz,1500);
-  delay(500);
-  tone(buz,2500);
-  delay(500);
+  digitalWrite(led1,HIGH);
+  delay(1000);
+  digitalWrite(led1,LOW);
+  digitalWrite(led2,HIGH);
+  delay(1000);
+  digitalWrite(led2,LOW);
 }
