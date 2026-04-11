@@ -1,17 +1,17 @@
-#define trig 8
-#define echo 9
+#define led 8
+int okunan;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(trig,OUTPUT);
-  pinMode(echo,INPUT);
+  pinMode(led,OUTPUT);
 }
 void loop() {
-  digitalWrite(trig,HIGH);
-  delayMicroseconds(15);
-  digitalWrite(trig,LOW);
-  int sure=pulseIn(echo,HIGH);
-  int mesafe=sure*0.0343/2;
-  Serial.println(mesafe);
-  delay(50);
+  okunan=analogRead(A0);
+  Serial.println(okunan);
+  if (okunan<20) {  // 20 değeri ldr'den gelen analog sinyale göre belirlenmiştir
+    digitalWrite(led,HIGH);
+  }
+  else {
+    digitalWrite(led,LOW);
+  }
 }
